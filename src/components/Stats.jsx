@@ -72,7 +72,7 @@ const Stats = () => {
     setTokenQuantityToBurn(event.target.value);
   };
 
-  const fetchTokenBalance = async () => {
+  const fetchTokenBalance = useCallback(async () => {
     if (!isConnected) {
       alert("Please connect your wallet first!");
       return;
@@ -88,13 +88,13 @@ const Stats = () => {
     } catch (error) {
       console.error("An error occurred", error);
     }
-  };
+  }, [isConnected, provider]);
 
   useEffect(() => {
     if (isConnected) {
       fetchTokenBalance();
     }
-  }, [isConnected]);
+  }, [isConnected, fetchTokenBalance]);
 
   return (
     <div className="statsBox">
