@@ -37,6 +37,8 @@ const Stats = () => {
       }); // specify ETH amount to send along with transaction
       await tx.wait();
       alert("Transaction successful!");
+
+      fetchTokenBalance(); // fetch balance after buying tokens
     } catch (error) {
       console.error("An error occurred", error);
     }
@@ -55,6 +57,8 @@ const Stats = () => {
       const tx = await contract.burnTokens(tokenQuantityToBurn);
       await tx.wait();
       alert("Transaction successful!");
+
+      fetchTokenBalance(); // fetch balance after burning tokens
     } catch (error) {
       console.error("An error occurred", error);
     }
@@ -91,10 +95,6 @@ const Stats = () => {
       fetchTokenBalance();
     }
   }, [isConnected]);
-
-  // Call fetchTokenBalance() after a successful token purchase or burn.
-  // Add these inside the try blocks of buyTokens() and burnTokens() methods:
-  fetchTokenBalance();
 
   return (
     <div className="statsBox">
