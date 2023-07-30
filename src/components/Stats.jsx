@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 import { contractAddress, contractABI } from "../contract";
 import { WalletContext } from "../contexts/WalletContext";
 
