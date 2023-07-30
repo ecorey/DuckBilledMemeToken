@@ -1,17 +1,9 @@
 import { Link } from "react-router-dom";
 import logo from "../images/97.png";
 import { FaTwitter } from "react-icons/fa";
-import { useContext } from "react";
-import { WalletContext } from "../contexts/WalletContext";
 import "../App.css";
 
 const Header = () => {
-  const { isConnected, connectWallet } = useContext(WalletContext);
-
-  const connectToWallet = () => {
-    connectWallet();
-  };
-
   return (
     <div className="w-full sticky top-0 z-50 dark:text-blue-500">
       <nav className="navbar navbar-expand-lg shadow-md py-2 relative flex items-center w-full justify-between bg-white dark:bg-gray-900">
@@ -60,20 +52,6 @@ const Header = () => {
               >
                 About
               </Link>
-
-              {/* <button
-                onClick={connectToWallet}
-                className="px-4 py-2.5 bg-blue-600 font-medium
-              text-sm leading-tight uppercase rounded-full
-              shadow-md shadow-gray-400 hover:bg-blue-700
-              hover:shadow-lg focus:outline-none
-              active:bg-blue-800 dark:shadow-transparent
-              transition duration-150 ease-in-out dark:text-blue-500
-              dark:border dark:border-blue-500 dark:bg-transparent
-              text-white"
-              >
-                {isConnected ? "Connected" : "Connect Wallet"}
-              </button> */}
             </div>
           </div>
         </div>
